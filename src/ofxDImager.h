@@ -60,7 +60,7 @@ class ofxDImager
 		float grayscaleThreshold ; 
 		float depthThreshold ; 
 		
-		int initialGrayBlurAmount ; 
+
 		int grayBlobsBlurAmount ; 
 
 		ofxSimpleTimer connectionTimer ;
@@ -76,11 +76,14 @@ class ofxDImager
 		unsigned short *grayscaleBuffer;
 
 		string debugString ; 
+		/* TO DO : Add background removal */
+		/*
 		//Background removal
 		ofxCvGrayscaleImage 	grayBg;
 		ofxCvGrayscaleImage 	grayDiff;
 		bool				bLearnBackground;
 		float				bgThreshold ; 
+		*/
 
 	private : 
 

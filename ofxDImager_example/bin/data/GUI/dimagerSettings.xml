@@ -1,0 +1,82 @@
+<Widget>
+    <Kind>4</Kind>
+    <Name>DEPTH THRESHOLD</Name>
+    <Value>0.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>GRAYSCALE THRESHOLD</Name>
+    <Value>4.519230843</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>IR FREQUENCY</Name>
+    <Value>1.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>MIRROR X</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>MIRROR Y</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>USE RECORDED VIDEO</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>AUTO RECONNECT</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>FIND CV HOLES</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>USE CV APPROXIMATION</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>ROI RECT X</Name>
+    <Value>32.615383148</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>ROI RECT Y</Name>
+    <Value>0.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>ROI RECT WIDTH</Name>
+    <Value>97.336532593</Value>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>ROI RECT HEIGHT</Name>
+    <Value>119.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>DEPTH RANGE</Name>
+    <HighValue>27.788461685</HighValue>
+    <LowValue>0.000000000</LowValue>
+</Widget>
+<Widget>
+    <Kind>6</Kind>
+    <Name>BLOB SIZE RANGE</Name>
+    <HighValue>0.839743614</HighValue>
+    <LowValue>0.000000000</LowValue>
+</Widget>
+<Widget>
+    <Kind>4</Kind>
+    <Name>BLOBS BLUR</Name>
+    <Value>1.000000000</Value>
+</Widget>

@@ -35,8 +35,9 @@ void ofxDImager::setup( )
 	grayThreshNear.allocate(160 , 120 );
 	grayThreshFar.allocate(160 , 120 );
 	grayBlobs.allocate(160 , 120 );
-	grayBg.allocate( 160 , 120 ) ; 
-	grayDiff.allocate( 160 , 120 ) ;
+	
+	//grayBg.allocate( 160 , 120 ) ; 
+	//grayDiff.allocate( 160 , 120 ) ;
 
 	depthBuffer=new unsigned short[160*120];
 	grayscaleBuffer=new unsigned short[160*120];
@@ -163,12 +164,13 @@ void ofxDImager::update ( )
 		}
 	}
 	
-	
+
+	/*
 	if ( initialGrayBlurAmount > 0 ) 
 	{
 		grayImage.blurGaussian( initialGrayBlurAmount ) ; 
 		grayImage.flagImageChanged() ; 
-	}
+	}*/
 
 
 	/*
@@ -185,11 +187,6 @@ void ofxDImager::update ( )
 	grayDiff.threshold( bgThreshold , true ) ; 
 
 	*/
-	/*
-	//int initialGrayBlurAmount ; 
-	int grayBlobsBlurAmount ; 
-	*/
-
 	grayBlobs.setROI( grayImage.getROI() ) ; 
 	grayBlobs = grayImage ;
 	grayThreshNear = grayImage ; 
@@ -216,7 +213,6 @@ void ofxDImager::update ( )
 	
 	grayBlobs.setROI( roiRect ) ; 
 	contourFinder.findContours( grayBlobs , minBlobSize , maxBlobSize , 1 , bFindHoles , bUseApproximation ) ; 
-	//grayBlobs.setROI( ofRectangle( 0 , 0, 160 , 120 ) ) ; 
 	delete[] depthMap ;
 	debugString = ss.str() ;
 }
@@ -314,14 +310,15 @@ void ofxDImager::draw( float x , float y )
 		ofSetColor ( 255 , 255 , 255 ) ; 
 		grayImage.draw ( 0 , 0 , 160 , 120 ) ;
 		recordedVideo.draw( 175 , 0 , 160 , 120 ) ;
-		grayBg.draw( 350 , 0 , 160 , 120 ) ; 
-		grayDiff.draw( 525 , 0 , 160 , 120 ) ; 
+
+		//grayBg.draw( 350 , 0 , 160 , 120 ) ; 
+		//grayDiff.draw( 525 , 0 , 160 , 120 ) ; 
 
 		ofSetColor ( 255 , 255 , 255 ) ; 
 		ofDrawBitmapStringHighlight ( "DEPTH FEED" , 15 , 140 ) ; 
 		ofDrawBitmapStringHighlight ( "DEPTH VIDEO" , 175 , 140 ) ; 
-		ofDrawBitmapStringHighlight ( "BG SNAPSHOT" , 350 , 140 ) ;
-		ofDrawBitmapStringHighlight ( "GRAY DIFF" , 525 , 140 ) ;
+		//ofDrawBitmapStringHighlight ( "BG SNAPSHOT" , 350 , 140 ) ;
+		//ofDrawBitmapStringHighlight ( "GRAY DIFF" , 525 , 140 ) ;
 			
 		ofTranslate( 170 , 0 ) ;
 
@@ -349,28 +346,6 @@ void ofxDImager::draw( float x , float y )
 
 		ofDrawBitmapStringHighlight ( "User Blobs" , 0 , 140 ) ; 
 
-		/*
-		grayThreshNear.draw ( 165 , 0 , 160, 120 ) ;
-		ofDrawBitmapStringHighlight ( "Near Threshold" , 175 , 140 ) ; 
-		grayThreshFar.draw( 330 , 0 , 160 , 120 ) ; 
-		ofDrawBitmapStringHighlight ( "Far Threshold" , 345 , 140 ) ;	
-		*/
-		/*
-		ofSetColor ( 255  ) ; 
-		armImage.draw( 0 , 0 , 160 , 120 ) ; 
-
-		ofPushMatrix() ; 
-			ofTranslate( armROI.x , armROI.y ) ;
-			armContourFinder.draw( 0 , 0 ) ; 
-			ofPushStyle() ; 
-				ofNoFill() ; 
-				ofSetColor( 0 , 212 , 255 ) ;
-				ofSetLineWidth ( 2 ) ;
-				ofRect( 0 , 0 , armROI.width , armROI.height ) ;
-			ofPopStyle() ;
-
-		ofPopMatrix() ;
-		*/
 	ofPopMatrix() ;
 }
 	
@@ -414,8 +389,8 @@ void ofxDImager::setupGUI( ofxUICanvas * gui )
 	gui->addSlider ( "DEPTH THRESHOLD" , 0.0f ,1500.0f , &depthThreshold ) ; 
 	gui->addSlider ( "GRAYSCALE THRESHOLD" , 0.0f , 30.0f , &grayscaleThreshold ) ; 
 	gui->addSlider ( "IR FREQUENCY" , 	1 , 3  , operatingFrequency ) ; //operatingFrequency
-	gui->addToggle ( "TAKE BG SNAPSHOT" , bLearnBackground ) ; 
-	gui->addSlider ( "BG THRESHOLD" , 0.0f, 100.0f , &bgThreshold ) ; 
+	//gui->addToggle ( "TAKE BG SNAPSHOT" , bLearnBackground ) ; 
+	//gui->addSlider ( "BG THRESHOLD" , 0.0f, 100.0f , &bgThreshold ) ; 
 	gui->addToggle( "MIRROR X" , &bMirrorX ) ; 
 	gui->addToggle( "MIRROR Y" , &bMirrorY ) ; 
 
@@ -433,7 +408,7 @@ void ofxDImager::setupGUI( ofxUICanvas * gui )
 	gui->addLabel( "DEPTH IMAGE PARAMS" ) ; 
 	gui->addRangeSlider( "DEPTH RANGE" , 0.0f , 255 , nearThreshold, farThreshold ) ; 
 	gui->addRangeSlider( "BLOB SIZE RANGE" , 0.0f , 1.0f , minBlobSize , maxBlobSize ) ; 
-	gui->addSlider( "INITIAL DEPTH BLUR" , 1 , 33 , initialGrayBlurAmount ) ;
+	//gui->addSlider( "INITIAL DEPTH BLUR" , 1 , 33 , initialGrayBlurAmount ) ;
 	gui->addSlider( "BLOBS BLUR" , 1 , 33 , grayBlobsBlurAmount ) ;
 	
 }
